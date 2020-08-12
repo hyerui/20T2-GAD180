@@ -12,5 +12,9 @@ public class NextLevel : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void LoadLevelThree()
+    {
+        SceneManager.LoadScene(4);
+    }
 
 }

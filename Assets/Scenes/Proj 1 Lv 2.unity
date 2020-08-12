@@ -1014,7 +1014,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   animator: {fileID: 382624601}
-  lastHitKey: 0
   isMoving: 0
 --- !u!212 &382624603
 SpriteRenderer:
@@ -1364,7 +1363,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   animator: {fileID: 527490099}
-  lastHitKey: 0
   isMoving: 0
 --- !u!95 &527490099
 Animator:
@@ -1795,7 +1793,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 2
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1813,7 +1811,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1831,7 +1829,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1878,16 +1876,16 @@ Tilemap:
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 907b0bedae279174a9ed45853d7d8f7a, type: 2}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 6942676bbcc7f1f4daac6f1d49a6b4bc, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: fb6b4378bd960d14c8d369790854eed3, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 648fbda5afc460a48b75892e1195b660, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: 5bb05f009385fa44887c5bcf66d7a243, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 648fbda5afc460a48b75892e1195b660, type: 3}
   - m_RefCount: 10
     m_Data: {fileID: 21300000, guid: 7349a77615a44824abe7480a7bb9b069, type: 3}
   m_TileMatrixArray:
@@ -3323,6 +3321,7 @@ GameObject:
   - component: {fileID: 1562413510}
   - component: {fileID: 1562413509}
   - component: {fileID: 1562413513}
+  - component: {fileID: 1562413514}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3424,6 +3423,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1144318788}
+--- !u!114 &1562413514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562413508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f15685a42e2cce47a3fe1950ea0cb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1571794850
 GameObject:
   m_ObjectHideFlags: 0
@@ -5526,8 +5537,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: LoadMenu
+      - m_Target: {fileID: 1562413514}
+        m_MethodName: LoadLevelThree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

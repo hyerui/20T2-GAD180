@@ -332,6 +332,7 @@ MonoBehaviour:
   pushRight: 0
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &46836124
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -655,6 +656,7 @@ MonoBehaviour:
   pushRight: 0
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &137792231
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -756,6 +758,7 @@ MonoBehaviour:
   pushRight: 0
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &186814151
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1150,6 +1153,7 @@ MonoBehaviour:
   pushRight: 0
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &323385601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2038,6 +2042,7 @@ MonoBehaviour:
   pushRight: 1
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &615784586
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2735,6 +2740,7 @@ MonoBehaviour:
   pushRight: 0
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &941590873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2836,6 +2842,7 @@ MonoBehaviour:
   pushRight: 1
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &1109887214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5039,6 +5046,7 @@ MonoBehaviour:
   pushRight: 0
   movePoint: {fileID: 512674294}
   player: {fileID: 382624604}
+  animPlayer: {fileID: 0}
 --- !u!212 &1782441433
 SpriteRenderer:
   m_ObjectHideFlags: 0
