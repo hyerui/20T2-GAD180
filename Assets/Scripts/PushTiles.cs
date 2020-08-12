@@ -16,6 +16,8 @@ public class PushTiles : MonoBehaviour
     public Transform movePoint;
     public Transform player;
 
+    public Animator animPlayer;
+
     void Update()
     {
         if (Vector2.Distance(transform.position, player.position) < 0.2f &&
@@ -38,5 +40,7 @@ public class PushTiles : MonoBehaviour
         {
             movePoint.SetPositionAndRotation(new Vector3((transform.position.x + tilesToPush), transform.position.y, movePoint.position.z), Quaternion.identity);
         }
+
+        Debug.Log("");
     }
 }
