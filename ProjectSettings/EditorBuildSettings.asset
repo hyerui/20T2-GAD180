@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Aphasia Main Menu.unity
+    guid: 36f46a727cc3f914da4b8de8c8cd119c
+  - enabled: 1
+    path: Assets/Scenes/AphasiaHelp.unity
+    guid: f71827721854b4345b8a6b3c62fa44e6
+  - enabled: 1
+    path: Assets/Scenes/Proj 1 Lv 1.unity
+    guid: 7dc7440211ef2964a8bdccc201a1d295
+  - enabled: 1
+    path: Assets/Scenes/Proj 1 Lv 2.unity
+    guid: 266b7381d263e784e9d0817cc91e01e1
+  - enabled: 1
+    path: Assets/Scenes/Proj 1 Lv 3.unity
+    guid: 53de52ea029ab574390a5fa4b86316d0
+  m_configObjects: {}
