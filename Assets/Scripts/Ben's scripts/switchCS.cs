@@ -21,7 +21,7 @@ public class switchCS : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         
     }
