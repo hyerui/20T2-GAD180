@@ -12,7 +12,13 @@ public class SophiaCountdownTimer : MonoBehaviour
     public GameObject lossText;
     public bool timeupTimer = false;
     public float losstime = 3;
+    private WordObjective WordObjective;
 
+    void Awake()
+    {
+        //Connects word objective script, to stop timer when win is achieved
+        WordObjective = GameObject.Find("Pupple - Player").GetComponent<WordObjective>();
+    }
     private void Start()
     {
         //Starts timer automatically
@@ -53,7 +59,18 @@ public class SophiaCountdownTimer : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
-        
+
+        //Reset Function
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (WordObjective.gameIsWon == true)
+        {
+            timerIsRunning = false;
+        }
+
     }
     void DisplayTime(float timeToDisplay) //To display minutes and seconds in Unity
     {
