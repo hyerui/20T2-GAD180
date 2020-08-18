@@ -10,6 +10,8 @@ public class SophiaCountdownTimer : MonoBehaviour
     public bool timerIsRunning = false;
     public Text timeText;
     public GameObject lossText;
+    public bool timeupTimer = false;
+    public float losstime = 3;
 
     private void Start()
     {
@@ -34,7 +36,20 @@ public class SophiaCountdownTimer : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 lossText.SetActive(true);
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+                timeupTimer = true;
+            }
+        }
+
+        if(timeupTimer == true)
+        {
+            losstime -= Time.deltaTime;
+            GameObject.Find("Pupple - Player").GetComponent<PlayerGridMovement>().enabled = false;
+
+            if (losstime <= 0)
+            {
+                Debug.Log("reset");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
         
