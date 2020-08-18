@@ -18,6 +18,7 @@ public class SophiaCountdownTimer : MonoBehaviour
         //Starts timer automatically
         timerIsRunning = true;
     }
+
     void Update()
     {
         if (timerIsRunning)
