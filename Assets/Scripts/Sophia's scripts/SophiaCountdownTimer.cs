@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,10 +7,10 @@ using UnityEngine.UI;
 public class SophiaCountdownTimer : MonoBehaviour
 {
     public float timeRemaining = 10;
-    private bool timerIsRunning = false;
+    public bool timerIsRunning = false;
     public Text timeText;
     public GameObject lossText;
-    private bool timeupTimer = false;
+    public bool timeupTimer = false;
     public float losstime = 3;
     private WordObjective WordObjective;
 

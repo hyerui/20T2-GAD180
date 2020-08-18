@@ -2927,8 +2927,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeRemaining: 120
+  timerIsRunning: 0
   timeText: {fileID: 1578475937}
   lossText: {fileID: 648224477}
+  timeupTimer: 0
   losstime: 3
 --- !u!1 &1571794850
 GameObject:
