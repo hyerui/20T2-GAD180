@@ -7,10 +7,15 @@ public class NextLevel : MonoBehaviour
 {
     // THIS GOES ON GAME CANVAS
 
-    // load next level
-    public void LoadNextLevel()
+    // load level two
+    public void LoadLevelTwo()
     {
-        Scene sceneLoaded = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(sceneLoaded.buildIndex + 1);
+        SceneManager.LoadScene(3);
     }
+
+    public void LoadLevelThree()
+    {
+        SceneManager.LoadScene(4);
+    }
+
 }

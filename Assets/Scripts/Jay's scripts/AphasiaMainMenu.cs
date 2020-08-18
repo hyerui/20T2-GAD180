@@ -10,7 +10,6 @@ public class AphasiaMainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(2);
-        GlobalCountDown.StartCountDown(System.TimeSpan.FromSeconds(10));
     }
 
     public void QuitGame()
