@@ -39,7 +39,7 @@ public class PersistentCounter : MonoBehaviour
             if (losstime <= 0)
             {
                 Debug.Log("reset");
-                GlobalCountDown.StartCountDown(System.TimeSpan.FromSeconds(10));
+                GlobalCountDown.StartCountDown(System.TimeSpan.FromMinutes(2));
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
