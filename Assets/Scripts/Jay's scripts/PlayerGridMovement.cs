@@ -8,13 +8,17 @@ public class PlayerGridMovement : MonoBehaviour
 
     public float moveSpeed = 5f;
 
+    [HideInInspector]
     public Transform movePoint;
+    [HideInInspector]
     public Transform spawn;
+
+    [HideInInspector]
+    public Animator animator;
 
     public LayerMask whatStopsMovement;
 
-    public Animator animator;
-
+    [HideInInspector]
     public bool isMoving;
 
     void Start()
@@ -22,6 +26,11 @@ public class PlayerGridMovement : MonoBehaviour
         movePoint.parent = null;
         spawn.parent = null;
         isMoving = false;
+
+        // declare variables
+        movePoint = GameObject.Find("MovePoint").transform;
+        spawn = GameObject.Find("PuppleSpawn").transform;
+        animator = GameObject.Find("Pupple - Player").GetComponent<Animator>();
     }
 
     void Update()
