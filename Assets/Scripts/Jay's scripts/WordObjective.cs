@@ -9,46 +9,66 @@ public class WordObjective : MonoBehaviour
     public Transform[] resetBlocks;
     public Transform player;
 
-    public Transform wordAPos;
-    public Transform wordBPos;
-    public Transform wordCPos;
-
-    public Transform wordADestination;
-    public Transform wordBDestination;
-    public Transform wordCDestination;
-
-    public Transform wordASpawn;
-    public Transform wordBSpawn;
-    public Transform wordCSpawn;
-
-    // bools for if word is picked up
-    public bool wordAPickedUp;
-    public bool wordBPickedUp;
-    public bool wordCPickedUp;
-
-    // bools for if word is complete
-    private bool wordAComplete;
-    private bool wordBComplete;
-    private bool wordCComplete;
-
-    public GameObject victoryScreenUI;
-
-    public bool gameIsWon;
-    public bool wordIsHeld;
-
     public Animator animWordA;
     public Animator animWordB;
     public Animator animWordC;
-
-    public GameObject wordA;
-    public GameObject wordB;
-    public GameObject wordC;
 
     public Animator animPlayer;
 
     private Vector3 scaleChange;
 
     private PlayerGridMovement PlayerGridMovement;
+
+    public GameObject victoryScreenUI;
+
+    // hidden variables
+    [HideInInspector]
+    public Transform wordAPos;
+    [HideInInspector]
+    public Transform wordBPos;
+    [HideInInspector]
+    public Transform wordCPos;
+
+    [HideInInspector]
+    public Transform wordADestination;
+    [HideInInspector]
+    public Transform wordBDestination;
+    [HideInInspector]
+    public Transform wordCDestination;
+
+    [HideInInspector]
+    public Transform wordASpawn;
+    [HideInInspector]
+    public Transform wordBSpawn;
+    [HideInInspector]
+    public Transform wordCSpawn;
+
+    [HideInInspector]
+    public bool wordAPickedUp;
+    [HideInInspector]
+    public bool wordBPickedUp;
+    [HideInInspector]
+    public bool wordCPickedUp;
+
+    [HideInInspector]
+    public bool wordAComplete;
+    [HideInInspector]
+    public bool wordBComplete;
+    [HideInInspector]
+    public bool wordCComplete;
+
+    [HideInInspector]
+    public bool gameIsWon;
+    [HideInInspector]
+    public bool wordIsHeld;
+
+    [HideInInspector]
+    public GameObject wordA;
+    [HideInInspector]
+    public GameObject wordB;
+    [HideInInspector]
+    public GameObject wordC;
+
 
     void Awake()
     {
@@ -58,6 +78,7 @@ public class WordObjective : MonoBehaviour
 
     void Start()
     {
+        // set bool values
         wordAPickedUp = false;
         wordBPickedUp = false;
         wordCPickedUp = false;
@@ -66,6 +87,23 @@ public class WordObjective : MonoBehaviour
         wordCComplete = false;
         gameIsWon = false;
         wordIsHeld = false;
+
+        // declare hidden variables
+        wordAPos = GameObject.Find("Objective A").transform;
+        wordBPos = GameObject.Find("Objective B").transform;
+        wordCPos = GameObject.Find("Objective C").transform;
+
+        wordADestination = GameObject.Find("Word A Destination").transform;
+        wordBDestination = GameObject.Find("Word B Destination").transform;
+        wordCDestination = GameObject.Find("Word C Destination").transform;
+
+        wordASpawn = GameObject.Find("Objective A Spawn").transform;
+        wordBSpawn = GameObject.Find("Objective B Spawn").transform;
+        wordCSpawn = GameObject.Find("Objective C Spawn").transform;
+
+        wordA = GameObject.Find("Objective A");
+        wordB = GameObject.Find("Objective B");
+        wordC = GameObject.Find("Objective C");
     }
 
     void Update()

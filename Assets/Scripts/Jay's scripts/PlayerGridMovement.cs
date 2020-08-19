@@ -9,6 +9,7 @@ public class PlayerGridMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     public Transform movePoint;
+    public Transform spawn;
 
     public LayerMask whatStopsMovement;
 
@@ -19,6 +20,7 @@ public class PlayerGridMovement : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
+        spawn.parent = null;
         isMoving = false;
     }
 
