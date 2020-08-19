@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Proj 1 Lv 3.unity
     guid: 53de52ea029ab574390a5fa4b86316d0
+  - enabled: 1
+    path: Assets/Scenes/Proj 1 Lv 4.unity
+    guid: ce2d8320dad308f4a906b3632bca8c57
+  - enabled: 1
+    path: Assets/Scenes/Proj 1 Lv 5.unity
+    guid: a9102e4dfb965f84893332bbbcc7dd36
   m_configObjects: {}
