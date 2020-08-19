@@ -9,17 +9,9 @@ public class WordObjective : MonoBehaviour
     public Transform[] resetBlocks;
     public Transform player;
 
-    public Animator animWordA;
-    public Animator animWordB;
-    public Animator animWordC;
-
-    public Animator animPlayer;
-
     private Vector3 scaleChange;
 
     private PlayerGridMovement PlayerGridMovement;
-
-    public GameObject victoryScreenUI;
 
     // hidden variables
     [HideInInspector]
@@ -69,6 +61,19 @@ public class WordObjective : MonoBehaviour
     [HideInInspector]
     public GameObject wordC;
 
+    [HideInInspector]
+    public Animator animWordA;
+    [HideInInspector]
+    public Animator animWordB;
+    [HideInInspector]
+    public Animator animWordC;
+
+    [HideInInspector]
+    public Animator animPlayer;
+
+    [HideInInspector]
+    public GameObject victoryScreenUI;
+
 
     void Awake()
     {
@@ -104,6 +109,14 @@ public class WordObjective : MonoBehaviour
         wordA = GameObject.Find("Objective A");
         wordB = GameObject.Find("Objective B");
         wordC = GameObject.Find("Objective C");
+
+        animWordA = GameObject.Find("Word A Destination").GetComponent<Animator>();
+        animWordB = GameObject.Find("Word B Destination").GetComponent<Animator>();
+        animWordC = GameObject.Find("Word C Destination").GetComponent<Animator>();
+
+        animPlayer = GameObject.Find("Pupple - Player").GetComponent<Animator>();
+
+        victoryScreenUI = GameObject.Find("VictoryScreen");
     }
 
     void Update()

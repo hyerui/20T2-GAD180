@@ -866,10 +866,10 @@ MonoBehaviour:
   moveSpeed: 5
   movePoint: {fileID: 512674294}
   spawn: {fileID: 888929289}
+  animator: {fileID: 0}
   whatStopsMovement:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 382624601}
   isMoving: 0
 --- !u!212 &382624603
 SpriteRenderer:
@@ -961,11 +961,6 @@ MonoBehaviour:
   - {fileID: 1664025687}
   - {fileID: 1331207046}
   player: {fileID: 382624604}
-  animWordA: {fileID: 895731477}
-  animWordB: {fileID: 1551272288}
-  animWordC: {fileID: 294325757}
-  animPlayer: {fileID: 382624601}
-  victoryScreenUI: {fileID: 1110930545}
   wordAPos: {fileID: 0}
   wordBPos: {fileID: 0}
   wordCPos: {fileID: 0}
@@ -986,6 +981,11 @@ MonoBehaviour:
   wordA: {fileID: 0}
   wordB: {fileID: 0}
   wordC: {fileID: 0}
+  animWordA: {fileID: 895731477}
+  animWordB: {fileID: 1551272288}
+  animWordC: {fileID: 294325757}
+  animPlayer: {fileID: 382624601}
+  victoryScreenUI: {fileID: 1110930545}
 --- !u!114 &382624606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,10 +1141,10 @@ MonoBehaviour:
   moveSpeed: 3
   movePoint: {fileID: 1253862718}
   spawn: {fileID: 0}
+  animator: {fileID: 527490099}
   whatStopsMovement:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 527490099}
   isMoving: 0
 --- !u!95 &527490099
 Animator:
