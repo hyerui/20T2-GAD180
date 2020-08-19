@@ -1765,6 +1765,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 934504281}
   - {fileID: 740060285}
+  - {fileID: 1315088525}
+  - {fileID: 601487366}
 --- !u!114 &692465983
 MonoBehaviour:
   m_ObjectHideFlags: 0
