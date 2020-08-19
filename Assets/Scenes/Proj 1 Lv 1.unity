@@ -858,10 +858,10 @@ MonoBehaviour:
   moveSpeed: 3
   movePoint: {fileID: 1253862718}
   spawn: {fileID: 0}
+  animator: {fileID: 527490099}
   whatStopsMovement:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 527490099}
   isMoving: 0
 --- !u!95 &527490099
 Animator:
@@ -1637,8 +1637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0aa173eaf5d034888eb2099969d803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
+  enemies: []
 --- !u!114 &797929696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1663,22 +1662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c8efa4b7c5ad84785ff05a4c018acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetBlocks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  resetBlocks: []
   player: {fileID: 797929701}
-  animWordA: {fileID: 0}
-  animWordB: {fileID: 0}
-  animWordC: {fileID: 0}
-  animPlayer: {fileID: 797929698}
-  victoryScreenUI: {fileID: 0}
+  victoryScreenUI: {fileID: 1110930545}
   wordAPos: {fileID: 0}
   wordBPos: {fileID: 0}
   wordCPos: {fileID: 0}
@@ -1699,6 +1685,10 @@ MonoBehaviour:
   wordA: {fileID: 0}
   wordB: {fileID: 0}
   wordC: {fileID: 0}
+  animWordA: {fileID: 0}
+  animWordB: {fileID: 0}
+  animWordC: {fileID: 0}
+  animPlayer: {fileID: 797929698}
 --- !u!95 &797929698
 Animator:
   serializedVersion: 3
@@ -1733,10 +1723,10 @@ MonoBehaviour:
   moveSpeed: 5
   movePoint: {fileID: 1560515500}
   spawn: {fileID: 102496732}
+  animator: {fileID: 797929698}
   whatStopsMovement:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 797929698}
   isMoving: 0
 --- !u!212 &797929700
 SpriteRenderer:
@@ -5093,7 +5083,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1562413514}
-        m_MethodName: LoadLevelTwo
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

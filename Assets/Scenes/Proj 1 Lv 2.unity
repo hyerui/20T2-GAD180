@@ -969,7 +969,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 217688244}
-        m_MethodName: LoadLevelTwo
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1114,10 +1114,10 @@ MonoBehaviour:
   moveSpeed: 3
   movePoint: {fileID: 1253862718}
   spawn: {fileID: 0}
+  animator: {fileID: 527490099}
   whatStopsMovement:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 527490099}
   isMoving: 0
 --- !u!95 &527490099
 Animator:
@@ -2752,8 +2752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0aa173eaf5d034888eb2099969d803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 0}
+  enemies: []
 --- !u!114 &1272241710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,21 +2778,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetBlocks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 36547397}
+  - {fileID: 1557631044}
+  - {fileID: 91117977}
+  - {fileID: 333092310}
+  - {fileID: 156682364}
+  - {fileID: 1102175674}
+  - {fileID: 568592017}
+  - {fileID: 534763021}
+  - {fileID: 1913025718}
   player: {fileID: 1272241715}
-  animWordA: {fileID: 0}
-  animWordB: {fileID: 0}
-  animWordC: {fileID: 0}
-  animPlayer: {fileID: 1272241712}
-  victoryScreenUI: {fileID: 0}
+  victoryScreenUI: {fileID: 1980855880}
   wordAPos: {fileID: 0}
   wordBPos: {fileID: 0}
   wordCPos: {fileID: 0}
@@ -2814,6 +2809,10 @@ MonoBehaviour:
   wordA: {fileID: 0}
   wordB: {fileID: 0}
   wordC: {fileID: 0}
+  animWordA: {fileID: 0}
+  animWordB: {fileID: 0}
+  animWordC: {fileID: 0}
+  animPlayer: {fileID: 1272241712}
 --- !u!95 &1272241712
 Animator:
   serializedVersion: 3
@@ -2848,10 +2847,10 @@ MonoBehaviour:
   moveSpeed: 5
   movePoint: {fileID: 1734340191}
   spawn: {fileID: 716083180}
+  animator: {fileID: 1272241712}
   whatStopsMovement:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 1272241712}
   isMoving: 0
 --- !u!212 &1272241714
 SpriteRenderer:
