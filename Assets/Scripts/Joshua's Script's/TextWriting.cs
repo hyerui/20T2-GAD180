@@ -17,14 +17,36 @@ public class TextWriting : MonoBehaviour
         textWriterSingleList = new List<TextWriterSingle>();
     }
 
-    public static void TextWriter_Static(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
+    public static TextWriterSingle TextWriter_Static(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters, bool removeWriterBeforeAdd)
     {
-        instance.TextWriter(uiText,toBeWritten,characterSpeed,invisibleCharacters);
+        if (removeWriterBeforeAdd)
+        {
+            instance.RemoveWriter(uiText);
+        }
+        return instance.TextWriter(uiText,toBeWritten,characterSpeed,invisibleCharacters);
     }
 
-    public void TextWriter(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
+    public TextWriterSingle TextWriter(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
     {
-        textWriterSingleList.Add(new TextWriterSingle(uiText, toBeWritten, characterSpeed, invisibleCharacters));
+        TextWriterSingle textWriterSingle = new TextWriterSingle(uiText, toBeWritten, characterSpeed, invisibleCharacters);
+        textWriterSingleList.Add(textWriterSingle);
+        return textWriterSingle;
+    }
+
+    public static void RemoveWriter_Static(Text uiText)
+    {
+        instance.RemoveWriter(uiText);
+    }
+
+    private void RemoveWriter(Text uiText)
+    {
+        for (int i = 0; i < textWriterSingleList.Count; i++)
+        {
+            if (textWriterSingleList[i].getUIText() == uiText)
+            {
+                textWriterSingleList.RemoveAt(i);
+            }
+        }
     }
 
     private void Update()
@@ -86,6 +108,24 @@ public class TextWriting : MonoBehaviour
             }
             return false;
         }
+        public Text getUIText()
+        {
+            return uiText;
+        }
+
+        public bool isActive()
+        {
+            return characterIndex < toBeWritten.Length;
+
+        }
+
+        public void writeAllAndDestroy()
+        {
+            uiText.text = toBeWritten;
+            characterIndex = toBeWritten.Length;
+            TextWriting.RemoveWriter_Static(uiText);
+        }
     }
+
 
 }
