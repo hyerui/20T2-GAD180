@@ -1,55 +1,71 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TextWriting : MonoBehaviour
 {
-    private TextWriterSingle textWriterSingle;
+    private static TextWriting instance;
+    private List<TextWriterSingle> textWriterSingleList;
+
+    public void Awake()
+    {
+        instance = this;
+        textWriterSingleList = new List<TextWriterSingle>();
+    }
+
+    public static void TextWriter_Static(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
+    {
+        instance.TextWriter(uiText,toBeWritten,characterSpeed,invisibleCharacters);
+    }
+
     public void TextWriter(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
     {
-        textWriterSingle = new TextWriterSingle(uiText, toBeWritten, characterSpeed, invisibleCharacters);
-    
+        textWriterSingleList.Add(new TextWriterSingle(uiText, toBeWritten, characterSpeed, invisibleCharacters));
     }
 
     private void Update()
     {
-        if (textWriterSingle != null)
+        Debug.Log(textWriterSingleList.Count);
+            for (int i = 0; i < textWriterSingleList.Count; i++)
+            {
+                bool destroyInstance = textWriterSingleList[i].Update();
+
+                if(destroyInstance)
+                {
+                    textWriterSingleList.RemoveAt(i);
+                }
+            }
+
+    }
+
+    //Represents a single instance
+    public class TextWriterSingle
+    {
+        private Text uiText;
+        private string toBeWritten;
+        private int characterIndex;
+        private float characterSpeed;
+        private float timer;
+        private bool invisibleCharacters;
+
+        public TextWriterSingle(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
         {
-            textWriterSingle.Update();
+            this.uiText = uiText;
+            this.toBeWritten = toBeWritten;
+            this.characterSpeed = characterSpeed;
+            this.invisibleCharacters = invisibleCharacters;
+            characterIndex = 0;
         }
-    }
 
-}
-
-public class TextWriterSingle
-{
-    private Text uiText;
-    private string toBeWritten;
-    private int characterIndex;
-    private float characterSpeed;
-    private float timer;
-
-    //Essentially writes out the text before displaying it so that each letter is rendered in it's spot
-    private bool invisibleCharacters;
-
-    public TextWriterSingle(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
-    {
-        this.uiText = uiText;
-        this.toBeWritten = toBeWritten;
-        this.characterSpeed = characterSpeed;
-        this.invisibleCharacters = invisibleCharacters;
-        characterIndex = 0;
-    }
-
-    // Update is called once per frame
-    public void Update()
-    {
-        if (uiText != null)
+        //Returns true on completion
+        public bool Update()
         {
             timer -= Time.deltaTime;
-            while (timer <= 0f)
+            while (timer <= 0)
             {
                 timer += characterSpeed;
                 characterIndex++;
@@ -57,17 +73,19 @@ public class TextWriterSingle
 
                 if (invisibleCharacters)
                 {
-                    text += "<color = #00000000>" + toBeWritten.Substring(characterIndex) + "</color>";
+                    //For some stupid reason, there can be no spaces in the color. Otherwise it won't work
+                    text += "<color=#00000000>" + toBeWritten.Substring(characterIndex) + "</color>";
+
                 }
 
                 uiText.text = text;
-
                 if (characterIndex >= toBeWritten.Length)
                 {
-                    uiText = null;
-                    return;
+                    return true;
                 }
             }
+            return false;
         }
     }
-};
+
+}
