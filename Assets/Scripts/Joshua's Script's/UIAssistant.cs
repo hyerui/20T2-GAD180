@@ -11,7 +11,7 @@ public class UIAssistant : MonoBehaviour
     [SerializeField] public Button_UI buttonui;
     public Text messageText;
     private Text nameText;
-    public int check = 0;
+    public int messageNum = 0;
     private TextWriting.TextWriterSingle textWriterSingle;
 
     // Start is called before the first frame update
@@ -35,12 +35,16 @@ public class UIAssistant : MonoBehaviour
                     " the mist of senses",
 
                     };
-                    string message = messageArray[messageArray.Length];
-                    textWriterSingle = TextWriting.TextWriter_Static(messageText, message, 0.05f, true, true);
+                    string message = messageArray[messageNum];
+                    textWriterSingle = TextWriting.TextWriter_Static(messageText, message, 0.05f, true, true, NextLine);
                 }
             };
     }
 
+    private void NextLine()
+    {
+        messageNum += 1;
+    }
     // Update is called once per frame
     void Start()
     {

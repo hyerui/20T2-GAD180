@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -17,18 +18,18 @@ public class TextWriting : MonoBehaviour
         textWriterSingleList = new List<TextWriterSingle>();
     }
 
-    public static TextWriterSingle TextWriter_Static(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters, bool removeWriterBeforeAdd)
+    public static TextWriterSingle TextWriter_Static(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters, bool removeWriterBeforeAdd, Action onComplete)
     {
         if (removeWriterBeforeAdd)
         {
             instance.RemoveWriter(uiText);
         }
-        return instance.TextWriter(uiText,toBeWritten,characterSpeed,invisibleCharacters);
+        return instance.TextWriter(uiText,toBeWritten,characterSpeed,invisibleCharacters, onComplete);
     }
 
-    public TextWriterSingle TextWriter(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
+    public TextWriterSingle TextWriter(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters, Action onComplete)
     {
-        TextWriterSingle textWriterSingle = new TextWriterSingle(uiText, toBeWritten, characterSpeed, invisibleCharacters);
+        TextWriterSingle textWriterSingle = new TextWriterSingle(uiText, toBeWritten, characterSpeed, invisibleCharacters, onComplete);
         textWriterSingleList.Add(textWriterSingle);
         return textWriterSingle;
     }
@@ -73,13 +74,15 @@ public class TextWriting : MonoBehaviour
         private float characterSpeed;
         private float timer;
         private bool invisibleCharacters;
+        private Action onComplete;
 
-        public TextWriterSingle(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters)
+        public TextWriterSingle(Text uiText, string toBeWritten, float characterSpeed, bool invisibleCharacters, Action onComplete)
         {
             this.uiText = uiText;
             this.toBeWritten = toBeWritten;
             this.characterSpeed = characterSpeed;
             this.invisibleCharacters = invisibleCharacters;
+            this.onComplete = onComplete;
             characterIndex = 0;
         }
 
@@ -103,6 +106,7 @@ public class TextWriting : MonoBehaviour
                 uiText.text = text;
                 if (characterIndex >= toBeWritten.Length)
                 {
+                    if (onComplete != null) onComplete();
                     return true;
                 }
             }
@@ -123,6 +127,7 @@ public class TextWriting : MonoBehaviour
         {
             uiText.text = toBeWritten;
             characterIndex = toBeWritten.Length;
+            if (onComplete != null) onComplete();
             TextWriting.RemoveWriter_Static(uiText);
         }
     }
