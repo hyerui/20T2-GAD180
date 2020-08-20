@@ -31,7 +31,7 @@ public class AIReset : MonoBehaviour
     {
         for (int i = 0; i < enemies.Length; ++i)
         {
-            if (Vector2.Distance(transform.position, enemies[i].position) <= 0.6f)
+            if (Vector2.Distance(transform.position, enemies[i].position) <= 0.3f)
             {
                 GetComponent<PlayerGridMovement>().enabled = false;
                 movePoint.position = spawn.position;
@@ -57,7 +57,7 @@ public class AIReset : MonoBehaviour
                 }
             }
 
-            if (Vector2.Distance(transform.position, enemies[i].position) > 0.6f)
+            if (Vector2.Distance(transform.position, enemies[i].position) > 0.3f)
             {
                 GetComponent<PlayerGridMovement>().enabled = true;
             }

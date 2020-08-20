@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerGridMovement : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class PlayerGridMovement : MonoBehaviour
     [HideInInspector]
     public bool isMoving;
 
+    [HideInInspector]
+    public int counter;
+
     void Start()
     {
         movePoint.parent = null;
@@ -31,6 +35,7 @@ public class PlayerGridMovement : MonoBehaviour
         movePoint = GameObject.Find("MovePoint").transform;
         spawn = GameObject.Find("PuppleSpawn").transform;
         animator = GameObject.Find("Pupple - Player").GetComponent<Animator>();
+        counter = 0;
     }
 
     void Update()
@@ -48,6 +53,7 @@ public class PlayerGridMovement : MonoBehaviour
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement))
                 {
                     movePoint.position += new Vector3(-1f, 0f, 0f);
+                    ++counter;
                 }
             }
             else 
@@ -60,6 +66,7 @@ public class PlayerGridMovement : MonoBehaviour
                 if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
                 {
                     movePoint.position += new Vector3(1f, 0f, 0f);
+                    ++counter;
                 }
             }
             else
@@ -69,9 +76,10 @@ public class PlayerGridMovement : MonoBehaviour
                 Input.GetKey(KeyCode.RightArrow) == false)
             {
                 isMoving = true;
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.2f, whatStopsMovement))
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement))
                 {
-                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    movePoint.position += new Vector3(0f, 1f, 0f);
+                    ++counter;
                 }
             }
             else
@@ -81,9 +89,10 @@ public class PlayerGridMovement : MonoBehaviour
                 Input.GetKey(KeyCode.RightArrow) == false)
             {
                 isMoving = true;
-                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.2f, whatStopsMovement))
+                if (!Physics2D.OverlapCircle(movePoint.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement))
                 {
-                    movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    movePoint.position += new Vector3(0f, -1f, 0f);
+                    ++counter;
                 }
             }
 
@@ -152,6 +161,11 @@ public class PlayerGridMovement : MonoBehaviour
         else
         {
             animator.SetFloat("Speed", 1);
+        }
+
+        if (counter == 2)
+        {
+            counter = 0;
         }
     }
 }
