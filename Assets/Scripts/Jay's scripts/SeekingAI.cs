@@ -72,7 +72,7 @@ public class SeekingAI : MonoBehaviour
                                     transform.position = new Vector3(transform.position.x + 1, transform.position.y, -2);
                                 }
                                 // check right
-                                if (Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
+                                else if (Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
                                 {
                                     transform.position = new Vector3(transform.position.x - 1, transform.position.y, -2);
                                 }

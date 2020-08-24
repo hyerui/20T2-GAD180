@@ -18,6 +18,8 @@ public class TextVN : MonoBehaviour
 
     public AudioSource source;
 
+    private bool isTyping;
+
     void Start()
     {
         testString = testTextAsset.text;
@@ -33,7 +35,8 @@ public class TextVN : MonoBehaviour
         int total = eachLine.Count;
 
         if (Input.GetKeyDown(KeyCode.Space) &&
-            textCounter < (total - 1))
+            textCounter < (total - 1) &&
+            isTyping == false)
         {
             StopAllCoroutines();
             ++textCounter;
@@ -46,6 +49,7 @@ public class TextVN : MonoBehaviour
             nameText.text = ("");
         }
 
+        // PURELY FOR TESTING
         if (Input.GetKeyDown(KeyCode.Q))
         {
             textCounter = -1;
@@ -66,9 +70,19 @@ public class TextVN : MonoBehaviour
             foreach (char letter in eachLine[textCounter].ToCharArray())
             {
                 dialogueText.text += letter;
+                yield return new WaitForSeconds(0.05f);
                 source.Play();
-                yield return new WaitForSeconds(0.02f);
+                isTyping = true;
             }
+            isTyping = false;
+        }
+
+        if (isTyping == true &&
+            Input.GetKeyDown(KeyCode.Space))
+        {
+            StopAllCoroutines();
+            isTyping = false;
+            dialogueText.text = eachLine[textCounter].ToString();
         }
     }
 }
