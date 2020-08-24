@@ -95,13 +95,17 @@ public class SeekingAI : MonoBehaviour
                             else if ((Mathf.Abs((transform.position.x - 1) - player.position.x)) == (Mathf.Abs((transform.position.x + 1) - player.position.x)) ||
                                 ((Mathf.Abs((transform.position.x - 1) - player.position.x)) == (Mathf.Abs((transform.position.x + 1) - player.position.x))))
                             {
-                                // check left
-                                if (Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement))
+                                // if collider to left and nothing to right
+                                // move right
+                                if (Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement) &&
+                                    !Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
                                 {
                                     transform.position = new Vector3(transform.position.x + 1, transform.position.y, -2);
                                 }
-                                // check right
-                                if (Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
+                                // if collider to right and nothing to left
+                                // move left
+                                if (Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement) &&
+                                    !Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement))
                                 {
                                     transform.position = new Vector3(transform.position.x - 1, transform.position.y, -2);
                                 }
@@ -187,13 +191,17 @@ public class SeekingAI : MonoBehaviour
                             else if ((Mathf.Abs((transform.position.x - 1) - player.position.x)) == (Mathf.Abs((transform.position.x + 1) - player.position.x)) ||
                                 ((Mathf.Abs((transform.position.x - 1) - player.position.x)) == (Mathf.Abs((transform.position.x + 1) - player.position.x))))
                             {
-                                // check left
-                                if (Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement))
+                                // if collider to left and nothing to right
+                                // move right
+                                if (Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement) &&
+                                    !Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
                                 {
                                     transform.position = new Vector3(transform.position.x + 1, transform.position.y, -2);
                                 }
-                                // check right
-                                else if (Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
+                                // if collider to right and nothing to left
+                                // move left
+                                if (Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement) &&
+                                    !Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement))
                                 {
                                     transform.position = new Vector3(transform.position.x - 1, transform.position.y, -2);
                                 }
@@ -288,12 +296,13 @@ public class SeekingAI : MonoBehaviour
                                     transform.position = new Vector3(transform.position.x, transform.position.y + 1, -2);
                                 }
                             }
-                            // move left/right if available
+                            // move up/down if available
                             else if ((Mathf.Abs((transform.position.y - 1) - player.position.y)) == (Mathf.Abs((transform.position.y + 1) - player.position.y)) ||
                                 ((Mathf.Abs((transform.position.y - 1) - player.position.y)) == (Mathf.Abs((transform.position.y + 1) - player.position.y))))
                             {
                                 // check up
-                                if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement))
+                                if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement) &&
+                                    !Physics2D.OverlapCircle(transform.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement))
                                 {
                                     transform.position = new Vector3(transform.position.x, transform.position.y - 1, -2);
                                 }
