@@ -163,7 +163,7 @@ public class PlayerGridMovement : MonoBehaviour
             animator.SetFloat("Speed", 1);
         }
 
-        if (counter == 2)
+        if (counter == 3)
         {
             counter = 0;
         }

@@ -35,7 +35,7 @@ public class SeekingAI : MonoBehaviour
             enemyHasMoved = false;
         }
 
-        if (PlayerGridMovement.counter == 1)
+        if (PlayerGridMovement.counter == 2)
         {
             if (enemyHasMoved == false)
             {
