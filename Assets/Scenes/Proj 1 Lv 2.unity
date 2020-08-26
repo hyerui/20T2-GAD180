@@ -1119,6 +1119,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   isMoving: 0
+  counter: 0
 --- !u!95 &527490099
 Animator:
   serializedVersion: 3
@@ -2852,6 +2853,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   isMoving: 0
+  counter: 0
 --- !u!212 &1272241714
 SpriteRenderer:
   m_ObjectHideFlags: 0
