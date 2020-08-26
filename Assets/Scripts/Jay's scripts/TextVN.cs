@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TextVN : MonoBehaviour
 {
-    public TextAsset testTextAsset;
+    public TextAsset textAsset;
     private string testString;
     private List<string> eachLine;
     private int textCounter;
@@ -22,7 +22,7 @@ public class TextVN : MonoBehaviour
 
     void Start()
     {
-        testString = testTextAsset.text;
+        testString = textAsset.text;
 
         textCounter = -1;
 
