@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TextVN : MonoBehaviour
 {
-    public TextAsset textAsset;
+    public TextAsset testTextAsset;
     private string testString;
     private List<string> eachLine;
     private int textCounter;
@@ -16,13 +16,11 @@ public class TextVN : MonoBehaviour
     public int[] nameSwitches;
     public string[] names;
 
-    public AudioSource source;
-
     private bool isTyping;
 
     void Start()
     {
-        testString = textAsset.text;
+        testString = testTextAsset.text;
 
         textCounter = -1;
 
@@ -71,7 +69,6 @@ public class TextVN : MonoBehaviour
             {
                 dialogueText.text += letter;
                 yield return new WaitForSeconds(0.05f);
-                source.Play();
                 isTyping = true;
             }
             isTyping = false;
