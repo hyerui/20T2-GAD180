@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class TextVN : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class TextVN : MonoBehaviour
     {
         testString = testTextAsset.text;
 
-        textCounter = -1;
+        textCounter = 0;
 
         eachLine = new List<string>();
         eachLine.AddRange(testString.Split("\n"[0]));
@@ -73,9 +74,9 @@ public class TextVN : MonoBehaviour
             }
             isTyping = false;
         }
-
+        //Allows next line to be started by pressing "Space" or the Left Mouse Button
         if (isTyping == true &&
-            Input.GetKeyDown(KeyCode.Space))
+            Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
         {
             StopAllCoroutines();
             isTyping = false;

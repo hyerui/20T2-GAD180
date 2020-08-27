@@ -525,49 +525,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1503751701
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1503751703}
-  - component: {fileID: 1503751702}
-  m_Layer: 0
-  m_Name: TextWriter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1503751702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503751701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82b6c60f5c4973b47825c9bb77184353, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1503751703
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503751701}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 458.87097, y: 296.95612, z: -370.1588}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1577603164
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +610,6 @@ GameObject:
   - component: {fileID: 1747545754}
   - component: {fileID: 1747545753}
   - component: {fileID: 1747545755}
-  - component: {fileID: 1747545756}
   m_Layer: 5
   m_Name: TextBox
   m_TagString: Untagged
@@ -727,33 +683,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1747545751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec162194855ede4b8c1374cfd81b9db, type: 3}
+  m_Script: {fileID: 11500000, guid: ab1ee0d7e40d4ae4b87c1ebb561055d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonui: {fileID: 1747545756}
-  messageText: {fileID: 376196421}
-  check: 0
---- !u!114 &1747545756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747545751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602f74cbbbd80034b96f88091a8e7c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverBehaviourType: 0
-  hoverBehaviour_Color_Enter: {r: 0, g: 0, b: 0, a: 0}
-  hoverBehaviour_Color_Exit: {r: 0, g: 0, b: 0, a: 0}
-  hoverBehaviour_Image: {fileID: 0}
-  hoverBehaviour_Sprite_Exit: {fileID: 0}
-  hoverBehaviour_Sprite_Enter: {fileID: 0}
-  hoverBehaviour_Move: 0
-  hoverBehaviour_Move_Amount: {x: 0, y: 0}
-  triggerMouseOutFuncOnClick: 0
+  testTextAsset: {fileID: 4900000, guid: bd48d7d62f5f61e4ab3caae19a7984c7, type: 3}
+  dialogueText: {fileID: 376196421}
+  nameText: {fileID: 659396976}
+  nameSwitches: 
+  names: []
 --- !u!1 &1830253736
 GameObject:
   m_ObjectHideFlags: 0
