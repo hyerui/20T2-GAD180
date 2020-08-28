@@ -48,12 +48,6 @@ public class TextVN : MonoBehaviour
             nameText.text = ("");
         }
 
-        // PURELY FOR TESTING
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            textCounter = -1;
-        }
-
         // changes name based on which line
         for (int i = 0; i < (total - 1); ++i)
         {

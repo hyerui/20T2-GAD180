@@ -449,14 +449,67 @@ public class SeekingAI : MonoBehaviour
                 // if distance between x and y axes are equal
                 else if ((Mathf.Abs(transform.position.y - player.position.y)) == (Mathf.Abs(transform.position.x - player.position.x)))
                 {
-                    // HAVE TO IMPLEMENT COLLIDABLES
+                    // move right if its towards the player
                     if (player.position.x > transform.position.x)
                     {
-                        transform.position = new Vector3(transform.position.x + 1, transform.position.y, -2);
+                        // if no collider to right, move right
+                        if (!Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
+                        {
+                            transform.position = new Vector3(transform.position.x + 1, transform.position.y, -2);
+                        }
+                        // if collider to right then
+                        else if (Physics2D.OverlapCircle(transform.position + new Vector3(1f, 0f, 0f), 0.2f, whatStopsMovement))
+                        {
+                            // if collider above, move down
+                            if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement) &&
+                                !Physics2D.OverlapCircle(transform.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement))
+                            {
+                                transform.position = new Vector3(transform.position.x, transform.position.y - 1, -2);
+                            }
+                            // if collider below, move up
+                            else if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement) &&
+                                     !Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement))
+                            {
+                                transform.position = new Vector3(transform.position.x, transform.position.y + 1, -2);
+                            }
+                            // if collider above and below, move back left
+                            else if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement) &&
+                                     Physics2D.OverlapCircle(transform.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement))
+                            {
+                                transform.position = new Vector3(transform.position.x - 1, transform.position.y, -2);
+                            }
+                        }
                     }
+                    // move left if its towards the player
                     else if (player.position.x < transform.position.x)
                     {
-                        transform.position = new Vector3(transform.position.x - 1, transform.position.y, -2);
+                        // if no collider to left, move left
+                        if (!Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement))
+                        {
+                            transform.position = new Vector3(transform.position.x - 1, transform.position.y, -2);
+                        }
+                        // if collider to left then
+                        else if (Physics2D.OverlapCircle(transform.position + new Vector3(-1f, 0f, 0f), 0.2f, whatStopsMovement))
+                        {
+                            // if collider above, move down
+                            if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement) &&
+                                !Physics2D.OverlapCircle(transform.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement))
+                            {
+                                transform.position = new Vector3(transform.position.x, transform.position.y - 1, -2);
+                            }
+                            // if collider below, move up
+                            else if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement) &&
+                                     !Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement))
+                            {
+                                transform.position = new Vector3(transform.position.x, transform.position.y + 1, -2);
+                            }
+                            // if collider above and below, move back right
+                            else if (Physics2D.OverlapCircle(transform.position + new Vector3(0f, 1f, 0f), 0.2f, whatStopsMovement) &&
+                                     Physics2D.OverlapCircle(transform.position + new Vector3(0f, -1f, 0f), 0.2f, whatStopsMovement))
+                            {
+                                transform.position = new Vector3(transform.position.x + 1, transform.position.y, -2);
+                            }
+                        }
                     }
                 }
             }
