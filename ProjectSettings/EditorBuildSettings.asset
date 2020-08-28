@@ -26,4 +26,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Proj 1 Lv 5.unity
     guid: a9102e4dfb965f84893332bbbcc7dd36
+  - enabled: 1
+    path: Assets/Scenes/Extra LVL/Extra lvl 1.unity
+    guid: 2dfcc4056af830948bb5b882745260c6
+  - enabled: 1
+    path: Assets/Scenes/Extra LVL/Extra lvl 2.unity
+    guid: 8f1a8f0cf4ebfdc4f8f0218a3bf1c3ea
+  - enabled: 1
+    path: Assets/Scenes/Extra LVL/Extra lvl 3.unity
+    guid: 6541cd37c7337634ebc3a55abbc8b286
+  - enabled: 1
+    path: Assets/Scenes/Extra LVL/Extra lvl 4.unity
+    guid: 22bf1b4dc1ae84e4db41393f83b0fa3b
   m_configObjects: {}
